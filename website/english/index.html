@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>HTML to Javascript</title>
+    <link href="css/style.css" type="text/css" rel="stylesheet">
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="cookie.js" type="text/javascript"></script>
+    <link href="logo.png" rel="shortcut icon" />
+
+    <script type="text/javascript">
+  <!--
+
+  function highlight(x){
+  document.forms[x].elements[0].focus()
+  document.forms[x].elements[0].select()
+  }
+
+
+  function scriptIt(val){
+  val.value=val.value.replace(/"/gi,"&#34;")
+  val.value=val.value.replace(/'/gi,"&#39;")
+  valArr=escape(val.value).split("%0D%0A")
+  val.value=""
+  for (i=0; i<valArr.length; i++){
+  val.value+= (i==0) ? "<script language=\"JavaScript\">\ninfo=" : ""
+  val.value+= "\"" + unescape(valArr[i])
+  val.value+= (i!=valArr.length-1) ? "\" + \n" : "\"\n"
+  }
+  val.value+="\ndocument.write(info)\n<\/script>"
+  }
+
+  function ctrlA(el) {
+  with(el){
+  focus(); select()
+  }
+  if(document.all){
+  txt=el.createTextRange()
+  txt.execCommand("Copy")
+  window.status='Selected and copied to clipboard!'
+  }
+  else window.status='Press ctrl-c to copy the text to the clipboard'
+  setTimeout("window.status=''",3000)
+  }
+  // end -->
+  </script>
+
+  </head>
+  <body>
+<div align="center">
+    <form name="f">
+<br><br><br>
+<h3>HTML to JavaScript</h3>
+<textarea name="t" cols="75"
+rows="20"></textarea><br><br>
+<input type="button" value="Convert from HTML to JavaScript" onclick="scriptIt(document.f.t)">
+<input type="reset" value="Reset">
+<input type="button" value="Select All" onclick="ctrlA(document.f.t)"><br><br>
+</form>
+
+<br>
+<br>
+
+<span id="clock" class="input"></span>
+
+<script type="text/javascript" language="JavaScript">
+
+
+function aggiorna() {
+
+var mesi = new Array("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");
+var nomeGiorno = new Array("Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday");
+
+Data = new Date()
+Giorno = Data.getDate()
+Mese = Data.getMonth()
+Anno = Data.getFullYear()
+Ore = Data.getHours()
+Minuti = Data.getMinutes()
+Secondi = Data.getSeconds()
+
+if ((Ore > 6) && (Ore < 13)) Saluto = "Good morning"
+
+if ((Ore > 12) && (Ore < 18)) Saluto = "Good afternoon"
+
+if ((Ore > 17) && (Ore < 22)) Saluto = "Good evening"
+
+if (Ore > 21) Saluto = "Good night"
+
+if (Ore < 7) Saluto = "Good night"
+
+if (Minuti < 10) Minuti = "0" + Minuti
+
+if (Secondi < 10) Secondi = "0" + Secondi
+
+messaggio = Saluto + "it's " + Ore + ":" + Minuti + "." + Secondi + " , " + nomeGiorno[Data.getDay()] + ", " + Giorno + " " + mesi[Mese] + " " + Anno
+
+if(!document.layers){
+  aggsec = setTimeout("aggiorna();",1000);}
+
+if (document.getElementById){
+    document.getElementById('clock').innerHTML=messaggio;}
+
+else if (document.all){
+    document.all.clock.innerHTML=messaggio;}
+
+else if(document.layers){
+    document.write(messaggio);}
+}
+aggiorna();
+//-->
+</script>
+
+<div class="footer">
+  <br><br><br>
+  <cite>Copyright &copy; 2018 All Right Reserved | Devolved By <b>Anonik </b></cite>
+</div>
+</div>
+
+
+  </body>
+</html>

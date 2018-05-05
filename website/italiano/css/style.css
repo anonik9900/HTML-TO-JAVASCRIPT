@@ -1,0 +1,22 @@
+
+/* CSS BY ANONIK */
+h3{
+  font-family: sans-serif;
+}
+
+body{
+  background-color: orange;
+}
+
+textarea{
+  border: solid 6px black;
+  font-family: sans-serif;
+  border-style:  dashed;
+}
+
+.input{
+  border-style: none;
+  font-family:Verdana,Arial,Helvetica,sans-serif;
+	font-size:10pt;
+	color : blue;
+}
